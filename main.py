@@ -50,5 +50,5 @@ def ping_room():
         return jsonify({"status": "ok"})
     return jsonify({"status": "not_found"}), 404
 
-if name == 'main':
+if name == '__main__':
     app.run(host='0.0.0.0', port=5000)
