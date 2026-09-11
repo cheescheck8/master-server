@@ -24,7 +24,7 @@ def create_room():
     "time_of_day": data.get("time_of_day", "Day"),
     "last_ping": time.time()
   }
-  return jsonify({"status": "succes", "room_id": room_id})
+  return jsonify({"status": "success", "room_id": room_id})
 
 @app.route('/get_rooms', methods=['GET'])
 def get_rooms():
@@ -42,12 +42,12 @@ def get_rooms():
 
 @app.route('/ping_room', methods=['POST'])
 def ping_room():
-  data = requst.json
+  data = request.json
   r_id = data.get("room_id")
-  id r_id in rooms:
-    rooms[r_id]["last_ping"] = time.time()
-    rooms[r_id]["current_players"] = data.get("current_players", 1)
-    return jsonify({"status": "ok"})
-  return jsonify({"status": "not_found"}), 404
+  if r_id in rooms:
+      rooms[r_id]["last_ping"] = time.time()
+      rooms[r_id]["current_players"] = data.get("current_players", 1)
+      return jsonify({"status": "ok"})
+return jsonify({"status": "not_found"}), 404
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=5000)
