@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import time
 
-app = Flask(__name__)
+app = Flask(name)
 rooms = {}
 ROOM_TIMEOUT = 15
 
@@ -50,5 +50,5 @@ def ping_room():
         return jsonify({"status": "ok"})
     return jsonify({"status": "not_found"}), 404
 
-if name == '__main__':
+if name == 'main':
     app.run(host='0.0.0.0', port=5000)
