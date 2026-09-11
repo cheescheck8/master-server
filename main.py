@@ -48,6 +48,6 @@ def ping_room():
     rooms[r_id]["last_ping"] = time.time()
     rooms[r_id]["current_players"] = data.get("current_players", 1)
     return jsonify({"status": "ok"})
-  return jsonify({status": "not_found"}), 404
+  return jsonify({"status": "not_found"}), 404
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=5000)
