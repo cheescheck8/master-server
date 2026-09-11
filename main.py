@@ -46,7 +46,7 @@ def ping_room():
   r_id = data.get("room_id")
   id r_id in rooms:
     rooms[r_id]["last_ping"] = time.time()
-    rooms[r_id]["current_players] = data.get("current_players", 1)
+    rooms[r_id]["current_players"] = data.get("current_players", 1)
     return jsonify({"status": "ok"})
   return jsonify({status": "not_found"}), 404
 if __name__ == '__main__':
