@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import time
 
-app = Flask(name)
+app = Flask(__name__)
 rooms = {}
 ROOM_TIMEOUT = 15
 
